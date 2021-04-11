@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- tampilan untuk crud dan melihat isi data yang sudah masuk ke database-->
+
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>ID </th>
+            <th>users</th>
+            <th>hub</th>
+            <th>isi</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for contactus in contactus %}
+            <tr>
+                <td>
+                    {{ contactus.id }}
+                </td>
+                <td>
+                    {{ contactus.users }}
+                </td>
+                <td>
+                    {{ contactus.hub }}
+                </td>
+                <td>
+                    {{ contactus.isi }}
+                </td>
+                <td>
+                    <a href="/contactus/update?id={{ contactus.id }}">edit</a>
+                    <a href="/contactus/delete?id={{ contactus.id }}">delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
